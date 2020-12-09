@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{18443514-d195-43fa-81cf-2f7b6cc88e87}</ProjectGuid>
-    <RootNamespace>leetcodeno144二叉树的前序遍历w2</RootNamespace>
+    <ProjectGuid>{a6d5122d-ec91-436e-91b9-fa7906758c18}</ProjectGuid>
+    <RootNamespace>leetcodeno144二叉树的前序遍历w3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="leetcode_no144_二叉树的前序遍历_w2.cpp" />
+    <ClCompile Include="leetcode_no144_二叉树的前序遍历_w3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -71,18 +71,24 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-void preorder(TreeNode* root, vector<int>& res) {
-    if (!root) {
-        return;
+void preorderStack(TreeNode* node, stack<TreeNode*>& s,vector<int> &res) {
+    while (node) {
+        res.emplace_back(node->val);
+        s.emplace(node->right);
+        node = node->left;
     }
-    res.emplace_back(root->val);
-    preorder(root->left, res);
-    preorder(root->right, res);
     return;
 }
 
 vector<int> preorderTraversal(TreeNode* root) {
+    stack<TreeNode*> s;
     vector<int> res;
-    preorder(root, res);
+    TreeNode* node = root;
+
+    while (!s.empty() || node != nullptr) {
+        preorderStack(node, s, res);
+        node = s.top();
+        s.pop();
+    }
     return res;
 }

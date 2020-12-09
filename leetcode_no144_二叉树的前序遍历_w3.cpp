@@ -41,10 +41,10 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。|
 -------------------------------------------------------------------*/
 
-/*	迭代法
+/*	迭代法2
 *
 *	执行用时：0 ms, 在所有 C++ 提交中击败了100.00%的用户
-*	内存消耗：8.7 MB, 在所有 C++ 提交中击败了24.07%的用户
+*	内存消耗：8.5 MB, 在所有 C++ 提交中击败了74.16%的用户
 */
 
 #include <iostream>
@@ -71,18 +71,24 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-void preorder(TreeNode* root, vector<int>& res) {
-    if (!root) {
-        return;
-    }
-    res.emplace_back(root->val);
-    preorder(root->left, res);
-    preorder(root->right, res);
-    return;
-}
-
 vector<int> preorderTraversal(TreeNode* root) {
+    stack<TreeNode*> s;
     vector<int> res;
-    preorder(root, res);
-    return res;
+    if (!root) {
+        return res;
+    }
+    s.emplace(root);
+
+    while (!s.empty()) {
+        TreeNode* node = s.top();
+        s.pop();
+        res.emplace_back(node->val);
+        if (node->right) {
+            s.emplace(node->right);
+        }
+        if (node->left) {
+            s.emplace(node->left);
+        }
+    }
+    return res;    
 }
